@@ -1,6 +1,7 @@
 import unittest  # подключаем юнит тест
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
 link1 = 'http://suninjuly.github.io/registration1.html'
 link2 = 'http://suninjuly.github.io/registration2.html'
 
@@ -8,7 +9,6 @@ link2 = 'http://suninjuly.github.io/registration2.html'
 # создаем функцию на возврат текста после успешной регистрации
 def registration(link):
     browser = webdriver.Chrome()
-    browser.implicitly_wait(5)
     browser.get(link)
     first_name = browser.find_element(By.XPATH, '/html/body/div/form/div[1]/div[1]/input')
     first_name.send_keys('Answer')
