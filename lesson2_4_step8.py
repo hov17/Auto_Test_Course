@@ -12,9 +12,10 @@ def calc(x):
 
 link = 'http://suninjuly.github.io/explicit_wait2.html'
 
-try:
-    browser = webdriver.Chrome()
+
+def test_answer(browser):
     browser.get(link)
+    browser.implicitly_wait(10)
     button = browser.find_element(By.ID, 'book')
     WebDriverWait(browser, 15).until(
         EC.text_to_be_present_in_element((By.ID, 'price'), '$100')
@@ -26,6 +27,3 @@ try:
     input1.send_keys(x)
     button2 = browser.find_element(By.ID, 'solve')
     button2.click()
-finally:
-    time.sleep(10)
-    browser.quit()
